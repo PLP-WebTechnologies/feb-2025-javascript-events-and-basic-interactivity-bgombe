@@ -1,0 +1,53 @@
+h1 {
+    color: rgb(8, 64, 110);
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+p {
+    color: rgb(8, 64, 110);
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+body {
+    background-color: rgb(179, 190, 196);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+button {
+    color: rgb(8, 64, 110);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    background-color: rgb(153, 171, 177);
+    border: 2px solid darkblue;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    double-click: 0.9s ease;
+}
+button:hover {
+    color: rgb(5, 57, 99);
+    background-color: rgb(5, 3, 83);
+    border: 2px solid darkblue;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+    double-click: 0.3s ease;
+}

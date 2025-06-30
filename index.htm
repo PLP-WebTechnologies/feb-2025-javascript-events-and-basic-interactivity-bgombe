@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buttons </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1> This is Sport house.</h1>
+    <p>We are open from 9am to 5pm.</p>
+    <p>We are located in the heart of the city.</p>
+    <p>We are a family owned business.</p>
+    <p>We are a family owned business.</p>
+
+    <br/><br/>
+    
+  <h2>Sign Up</h2>
+  <div class="form-box">
+    <input type="text" id="signupUsername" placeholder="Username">
+    <input type="text"id="signupemail" placeholder="Email"> <br>
+    <input type="password" id="signupPassword" placeholder="Password">
+    <button onclick="signUp()">Sign Up</button>
+  </div>
+
+  <h2>Login</h2>
+  <div class="form-box">
+    <input type="text" id="loginUsername" placeholder="Username">
+    <input type="password" id="loginPassword" placeholder="Password">
+    <button onclick="login()">Login</button>  w2
+  </div>
+
+  <p id="message"></p>
+
+  <script>
+    // Store users in memory
+    const users = {};
+
+    function signUp() {
+      const username = document.getElementById("signupUsername").value;
+      const password = document.getElementById("signupPassword").value;
+
+      if (!username || !password) {
+        showMessage("Please fill in all fields.", "red");
+        return;
+      }
+
+      if (users[username]) {
+        showMessage("Username already exists. Choose another.", "red");
+      } else {
+        users[username] = password;
+        showMessage("Sign up successful! You can now log in.", "green");
+        document.getElementById("signupUsername").value = '';
+        document.getElementById("signupPassword").value = '';
+      }
+    }
+// Gets the password.
+    function login() {
+      const username = document.getElementById("loginUsername").value;
+      const password = document.getElementById("loginPassword").value;
+
+      if (users[username] && users[username] === password) {
+        showMessage("Login successful!", "green");
+      } else {
+        showMessage("Invalid username or password.", "red");
+      }
+    }
+
+    function showMessage(text, color) {
+      const message = document.getElementById("message");
+      message.textContent = text;
+      message.style.color = color;
+    }
+  </script>
+
+</body>
+</html>
+
+      
+
+    <button id="applyBtn"> Apply here</button>
+    <button id="faqBtn">FAQ</button>
+    <button id="contactBtn">Contact Us</button>
+    <div id="elementContainer" style="display: none;"></div>
+    <script>
+        const applyButton = document.getElementById('applyBtn');
+        const faqButton = document.getElementById('faqBtn');
+        const contactButton = document.getElementById('contactBtn');
+        const elementContainer = document.getElementById('elementContainer');
+
+        applyButton.addEventListener('click', () => {
+            alert('Button clicked.');
+        });
+        contactButton.addEventListener('click', ()=>{
+            alert('sport24@house.com')
+        }) 
+
+        let faqClicked = false;
+        faqButton.addEventListener('click', function() {
+            faqClicked = !faqClicked;
+            if (faqClicked) {
+                this.style.backgroundColor = 'blue';
+                this.style.color = 'white';
+            } else {
+                this.style.backgroundColor = '';
+                this.style.color = '';
+            }
+        });
+        
+        contactButton.addEventListener('click', () => {
+            if (elementContainer.style.display === 'none') {
+                elementContainer.innerHTML = '<p>Contact us at sport24@house.com</p>';
+                elementContainer.style.display = 'block';
+            } else {
+                elementContainer.style.display = 'none';
+            }
+        });
+
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mouseover', function() {
+                // Using function so 'this' refers to the button
+                this.style.background = 'lightgray';
+            });
+            button.addEventListener('mouseout', function() {
+                if (this.id === 'faqBtn' && faqClicked) {
+                    this.style.background = 'blue';
+                } else {
+                    this.style.background = '';
+                }
+            });
+        });
+
+        // Add sign-in form submission handler
+        const signInForm = document.getElementById('signInForm');
+        signInForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const passwordInput = document.getElementById('password').value;
+            if (passwordInput) {
+                alert('Sign-in successful!');
+                // Additional sign-in logic can be added here
+            } else {
+                alert('Please enter your password.');
+            }
+        });
+    </script>
+</body>
+</html>
